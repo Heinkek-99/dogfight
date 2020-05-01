@@ -31,6 +31,10 @@ public class DogfightView implements IViewSystem, Runnable{
 		
 	}
 
+	public GraphicsBuilder getGraphicsBuilder() {
+		return graphicsBuilder;
+	}
+
 
 
 }
