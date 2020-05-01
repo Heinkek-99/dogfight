@@ -3,7 +3,7 @@ package jpu2016.dogfight.modele;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class DogfightModel extends Observable implements IDogFightModel{
+public class DogfightModel extends Observable implements IDogfightModel{
 
 	@Override
 	public IArea getArea() {
