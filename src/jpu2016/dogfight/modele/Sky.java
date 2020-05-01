@@ -16,6 +16,6 @@ public class Sky implements IArea{
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.getImage();
 	}
 }
