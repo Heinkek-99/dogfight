@@ -1,4 +1,4 @@
-package jpu2016.dogfight.contoller;
+package jpu2016.dogfight.controller;
 import jpu2016.dogfight.model.IDogfightModel;
 import jpu2016.dogfight.view.IViewSystem;
 
