@@ -1,23 +1,20 @@
 package jpu2016.dogfight.controller;
-import jpu2016.dogfight.model.IDogfightModel;
+import jpu2016.dogfight.modele.IDogfightModel;
 import jpu2016.dogfight.view.IViewSystem;
 
 	public class DogfightController implements IOrderPerformer {
 
-		private IDogfightModel dogfightModel;
+		private final IDogfightModel dogfightModel;
 		private IViewSystem viewSystem;
 		
 		public static int TIME_SLEEP = 30;
 		
-		public static int getTIME_SLEEP() {
-			return TIME_SLEEP;
+		public DogfightController(final IDogfightModel dogfightModel) {
+			
+			this.dogfightModel = dogfightModel;
 		}
-		public static void setTIME_SLEEP(int tIME_SLEEP) {
-			TIME_SLEEP = tIME_SLEEP;
+		public void orderPerform(UserOrder userOrder) {
 		}
-		public DogfightController(IDogfightModel dogfightModel);
-		
-		public void orderPerform(UserOrder userOrder);
 		
 		public void play() {
 			
@@ -33,6 +30,9 @@ import jpu2016.dogfight.view.IViewSystem;
 		
 		private void gameLoop() {
 			
+		}
+		public IDogfightModel getDogfightModel() {
+			return dogfightModel;
 		}
 		
 		
