@@ -2,23 +2,28 @@ package jpu2016.dogfight.modele;
 
 import java.awt.Image;
 import java.awt.Point;
-import java.util.ArrayList;
+
+
+import com.sun.prism.paint.Color;
 
 public class Mobile implements IMobile{
 
 	private int speed;
+	private Image Fimage;
+	
 	private Position position;
 	private Dimension dimension;
-	private ArrayList<Image> images;
 	private DogfightModel dogfightModel;
 	private Direction direction;
+	private String filenameIMG;
+	
 	
 	public Mobile (Direction direction, Position position, Dimension dimension, int speed, String image) {
 		this.setDirection(direction) ;
 		this.position = position ;
 		this.dimension = dimension ;
 		this.speed = speed ;
-		this.images = new ArrayList<Image>() ;
+		this.filenameIMG = image;
 		//TODO ajouter une image
 	}
 	
@@ -45,7 +50,7 @@ public class Mobile implements IMobile{
 	@Override
 	public Dimension getDimension() {
 		// TODO Auto-generated method stub
-		return this.dimension;
+		return dimension;
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class Mobile implements IMobile{
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.Fimage;
 	}
 
 	@Override
@@ -88,6 +93,23 @@ public class Mobile implements IMobile{
 	public boolean isPlayer(int player) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void moveUP(){
+        this.direction = Direction.UP;
+    }
+    public void moveDOWN(){
+        this.direction = Direction.DOWN;
+    }
+    public void moveRIGHT(){
+        this.direction = Direction.RIGHT;
+    }
+    public void moveLEFT(){
+        this.direction = Direction.LEFT;
+    }
+	
+	public Color getColor() {
+		return new Color(255,255,255, speed);
 	}
 	
 	public IDogfightModel getDogfightModel () {
