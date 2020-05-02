@@ -2,7 +2,7 @@ import jpu2016.dogfight.controller.DogfightController;
 import jpu2016.dogfight.modele.DogfightModel;
 import jpu2016.dogfight.view.DogfightView;
 
-public class Main {
+public abstract class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
