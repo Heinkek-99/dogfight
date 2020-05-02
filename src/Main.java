@@ -1,3 +1,5 @@
+import jpu2016.dogfight.controller.DogfightController;
+import jpu2016.dogfight.modele.DogfightModel;
 
 public class Main {
 
