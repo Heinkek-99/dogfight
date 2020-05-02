@@ -24,7 +24,7 @@ import jpu2016.dogfight.view.IViewSystem;
 			
 		}
 		
-		private void launchMissile(int player) {
+		private void launchMissile(final int player) {
 			
 		}
 		
