@@ -5,10 +5,14 @@ import java.util.Observable;
 
 public class DogfightModel extends Observable implements IDogfightModel{
 
+	public DogfightModel() {
+		
+	}
+	
 	@Override
 	public IArea getArea() {
 		// TODO Auto-generated method stub
-		return null;
+		return getArea();
 	}
 
 	@Override
@@ -26,6 +30,7 @@ public class DogfightModel extends Observable implements IDogfightModel{
 	@Override
 	public void removeMobile(IMobile Mobile) {
 		// TODO Auto-generated method stub
+		this.getMobiles().remove(Mobile);
 	}
 
 
@@ -37,6 +42,9 @@ public class DogfightModel extends Observable implements IDogfightModel{
 
 	@Override
 	public IMobile getMobileByPlayer(int player) {
+		for (final IMobile mobile : this.getMobiles()) {
+			if (mobile.isPlayer(player)) { return mobile; }
+		}
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -47,6 +55,4 @@ public class DogfightModel extends Observable implements IDogfightModel{
 		
 	}
 	
-	
-
 }

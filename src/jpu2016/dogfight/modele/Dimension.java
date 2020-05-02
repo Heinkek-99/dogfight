@@ -5,11 +5,13 @@ public class Dimension {
 	private int height;
 	
 	public Dimension(int width, int height) {
-		
+		this.width = width;
+		this.height = height;
 	}
 	
 	public Dimension(Dimension dimension) {
-		
+		this.width = dimension.getWidth();
+		this.height = dimension.getHeight();
 	}
 
 	public int getWidth() {
