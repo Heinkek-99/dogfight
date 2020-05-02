@@ -9,24 +9,38 @@ public class Missile extends Mobile{
 	private static String IMAGE = "missile";
 	private int distanceTraveled = 0;
 	
-	public Missile(Direction direction, Position position, Dimension dimension) {
-		super(direction, position, dimension, HEIGHT, IMAGE);
-		this.distanceTraveled = distanceTraveled;
+	public Missile(Direction direction,Position position) {
+		super(direction, position, new Dimension(WIDTH, HEIGHT), SPEED, IMAGE);
+		this.distanceTraveled = 0;
+		
 	}
 	
 	public static int getWidthADirection(Direction direction) {
-		return WIDTH;
+		if (direction == Direction.UP || direction == Direction.DOWN) {
+			return WIDTH;
+		} else {
+			return HEIGHT;
+		}
 	}
 
 	public static int getHeightADirection(Direction direction) {
-		return HEIGHT;
+		if (direction == Direction.UP || direction == Direction.DOWN) {
+			return HEIGHT;
+		} else {
+			return WIDTH;
+		}
 	}
 	
 	public void move() {
+		super.move();
+		this.distanceTraveled += this.getSpeed();
+		if (this.distanceTraveled > MAX_DISTANCE_TRAVELED) {
+			this.getDogfightModel().removeMobile((IMobile) this);
+		}
 		
 	}
 	
 	public boolean isWeapon() {
-		return false;
+		return true;
 	}
 }

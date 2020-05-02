@@ -6,24 +6,41 @@ public class Position {
 	private double y;
 	private double maxX;
 	private double maxY;
+	
 	public Position(double x, double y, double maxX, double maxY) {
-		super();
-		this.x = x;
-		this.y = y;
-		this.maxX = maxX;
-		this.maxY = maxY;
+		this.setX(x);
+		this.setY(y) ;
+		this.setMaxX(maxX) ;
+		this.setMaxY(maxY);
 	}
+	
+	public Position(Position position) {
+		this.setX(position.getX());
+		this.setY(position.getY()) ;
+		this.setMaxX(position.maxX) ;
+		this.setMaxY(position.maxY);	
+	
+	}
+	
 	public double getX() {
 		return x;
 	}
 	public void setX(double x) {
-		this.x = x;
+		if (x > this.maxX) {
+			this.x = x - this.maxX;
+		} else if (x < 0) {
+			this.x = x + this.maxX;
+		}
 	}
 	public double getY() {
 		return y;
 	}
 	public void setY(double y) {
-		this.y = y;
+		if (y > this.maxY) {
+			this.y = y - this.maxY;
+		} else if (y < 0) {
+			this.y = y + this.maxY;
+		}
 	}
 	
 	protected void setMaxX(double maxX) {
