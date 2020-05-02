@@ -6,6 +6,7 @@ public class Plane extends Mobile{
 	private static int WIDTH = 100;
 	private static int HEIGHT = 30;
 	private static final String IMAGE = "plane.png";
+	
 	private int player;
 	public Plane(int player, Direction direction, Position position, String image) {
 		super(direction, position, new Dimension(WIDTH, HEIGHT), SPEED, IMAGE);

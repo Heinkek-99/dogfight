@@ -16,12 +16,12 @@ public class Sky implements IArea{
 	@Override
 	public Dimension getDimension() {
 		// TODO Auto-generated method stub
-		return dimension;
+		return this.dimension;
 	}
 
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
-		return image;
+		return this.image;
 	}
 }
