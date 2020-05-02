@@ -3,16 +3,23 @@ package jpu2016.dogfight.view;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
+import jpu2016.dogfight.modele.IDogfightModel;
+import jpu2016.dogfight.modele.IMobile;
 import jpu2016.gameframe.IGraphicsBuilder;
 
 public class GraphicsBuilder implements IGraphicsBuilder {
 
 	
-	public GraphicsBuilder( IDogfight dogfightModel ) {
+	public GraphicsBuilder( IDogfightModel dogfightModel ) {
 		// TODO Auto-generated constructor stub
 	}
 
 	
+	public GraphicsBuilder() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	private void buildEmptySky() {
 		
 	}

@@ -2,10 +2,13 @@ package jpu2016.dogfight.view;
 
 import java.util.Observable;
 
+import jpu2016.dogfight.controller.IOrderPerformer;
+import jpu2016.dogfight.modele.IDogfightModel;
+
 public class DogfightView implements IViewSystem, Runnable{
 	private final EventPerformer eventPerformer;
 	
-	private final GraphicsBuilder graphicsBuilder;
+	private  GraphicsBuilder graphicsBuilder;
 	
 	public DogfightView(IOrderPerformer orderPerformer, IDogfightModel dogfightModel, Observable observable) {
 		// TODO Auto-generated constructor stub
