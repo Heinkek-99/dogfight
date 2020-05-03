@@ -131,4 +131,12 @@ public class Mobile implements IMobile{
 		return false;
 	}
 
+	public ArrayList<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(ArrayList<Image> images) {
+		this.images = images;
+	}
+
 }
