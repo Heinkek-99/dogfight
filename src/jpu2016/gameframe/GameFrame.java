@@ -1,5 +1,6 @@
 package jpu2016.gameframe;
 
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class GameFrame extends JFrame implements KeyListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 4494172804371767780L;
+	static public int zoom = 10;
 	private IDogfightModel dogfightModel;
 	private final IEventPerformer eventPerformer;
 	
@@ -29,11 +31,13 @@ public class GameFrame extends JFrame implements KeyListener {
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);
 		
+		
 		/*
 		 * 
 		 */
 		final GamePanel gamepanel = new GamePanel(new GraphicsBuilder(dogfightModel));
 		this.setContentPane(gamepanel);
+		this.setSize((((Component) dogfightModel).getWidth() * zoom) + this.getInsets().left + this.getInsets().right, (((Component) dogfightModel).getHeight() * zoom) + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		
