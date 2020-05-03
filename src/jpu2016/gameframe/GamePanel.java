@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements Observer{
 	}
 	
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable observable, Object arg1) {
 		// TODO Auto-generated method stub
 		this.repaint();
 		
