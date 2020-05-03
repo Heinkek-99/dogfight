@@ -2,29 +2,26 @@ package jpu2016.dogfight.modele;
 
 import java.awt.Image;
 import java.awt.Point;
-
+import java.util.ArrayList;
 
 import com.sun.prism.paint.Color;
 
 public class Mobile implements IMobile{
 
 	private int speed;
-	private Image Fimage;
+	private ArrayList<Image> images ;
 	
 	private Position position;
 	private Dimension dimension;
 	private DogfightModel dogfightModel;
 	private Direction direction;
-	private String filenameIMG;
-	
+		
 	
 	public Mobile (Direction direction, Position position, Dimension dimension, int speed, String image) {
 		this.setDirection(direction) ;
 		this.position = position ;
 		this.dimension = dimension ;
 		this.speed = speed ;
-		this.filenameIMG = image;
-		//TODO ajouter une image
 	}
 	
 	@Override
@@ -74,7 +71,7 @@ public class Mobile implements IMobile{
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
-		return this.Fimage;
+		return null;
 	}
 
 	@Override
