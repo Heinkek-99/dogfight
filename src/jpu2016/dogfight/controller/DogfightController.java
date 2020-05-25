@@ -1,28 +1,45 @@
 package jpu2016.dogfight.controller;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Observable;
+
+import com.sun.prism.Graphics;
 
 import jpu2016.dogfight.modele.Direction;
 import jpu2016.dogfight.modele.IDogfightModel;
 import jpu2016.dogfight.modele.IMobile;
 import jpu2016.dogfight.modele.Missile;
+import jpu2016.dogfight.modele.Mobile;
 import jpu2016.dogfight.modele.Position;
+import jpu2016.dogfight.view.GraphicsBuilder;
 import jpu2016.dogfight.view.IViewSystem;
+import jpu2016.gameframe.GameFrame;
+import jpu2016.gameframe.IEventPerformer;
+import jpu2016.gameframe.IGraphicsBuilder;
 
 	public class DogfightController implements IOrderPerformer {
 
 		private final IDogfightModel dogfightModel;
 		private IViewSystem viewSystem;
+		private IGraphicsBuilder graphicBuilder;
+		private IEventPerformer performer;
+		private Observable observable;
 		
 		public static int TIME_SLEEP = 30;
 		
-		public DogfightController(final IDogfightModel dogfightModel) {
+		private Graphics graphic;
+		private Mobile mobile;
+		
+		public DogfightController(final IDogfightModel dogfightModel) throws IOException{
 			
 			this.dogfightModel = dogfightModel;
+			this.mobile = mobile;
 		}
 		public void orderPerform(UserOrder userOrder) throws IOException {
 	
 			final int player = userOrder.getPlayer();
 			final IMobile mobile = this.dogfightModel.getMobileByPlayer(player);
+			
 			switch (userOrder.getOrder()) {
 			case UP:
 				mobile.setDirection(Direction.UP);
@@ -45,11 +62,15 @@ import jpu2016.dogfight.view.IViewSystem;
 			}
 		}
 		
-		public void play() {
-			this.gameLoop();
-			this.viewSystem.displayMessage("Partie terminée !");
-		
+		public void play () throws IOException  {
+			//this.gameLoop();
+			this.setViewSystem(viewSystem);
+			this.viewSystem.closeAll();
+			GameFrame dog = new GameFrame("Dogfight 2.0", this.performer, this.graphicBuilder, this.observable);
+			GraphicsBuilder graphicBuider = new GraphicsBuilder(dogfightModel);
+			graphicBuider.buildEmptySky();
 		}
+
 		
 		public void setViewSystem(IViewSystem viewSystem) {
 			this.viewSystem = viewSystem;
@@ -85,8 +106,12 @@ import jpu2016.dogfight.view.IViewSystem;
 			
 		
 		private void gameLoop() {
-			
+			boolean bool = true;
+			while(bool) {
+				((IMobile) getMobiles()).move();
+			}
 		}
+		
 		public IDogfightModel getDogfightModel() {
 			return dogfightModel;
 		}
@@ -124,6 +149,11 @@ import jpu2016.dogfight.view.IViewSystem;
 					}
 				}
 			}
+		}
+		
+		public ArrayList<IMobile> getMobiles() {
+			// TODO Auto-generated method stub
+			return this.getMobiles();
 		}
 		
 	}

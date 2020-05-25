@@ -35,7 +35,7 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 	/*
 	 * constructeur EmptySky
 	 */
-	private void buildEmptySky() {
+	public void buildEmptySky() {
 		this.emptySky = new BufferedImage(this.dogfightModel.getArea().getDimension().getWidth(), this.dogfightModel.getArea().getDimension().getHeight(), BufferedImage.TYPE_INT_BGR);
 		/*
 		 * 

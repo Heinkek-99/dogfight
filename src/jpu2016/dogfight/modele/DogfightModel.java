@@ -58,5 +58,10 @@ public class DogfightModel extends Observable implements IDogfightModel{
 		
 		
 	}
+
+	public void buildArea(java.awt.Dimension dimension) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

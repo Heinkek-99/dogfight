@@ -21,28 +21,31 @@ public class GameFrame extends JFrame implements KeyListener {
 	private IDogfightModel dogfightModel;
 	private final IEventPerformer eventPerformer;
 	
-	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observable ) {
+	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observable ) throws IOException {
 		this.eventPerformer = performer;
 		// TODO Auto-generated constructor stub
 		/*
 		 * Titre du jeu
 		 */
-		this.setTitle("Dogfight 2.0");
+		this.setTitle(title);
+		this.setSize(700,700);
+		this.setContentPane(new GamePanel(graphicBuilder));
+
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setResizable(false);
-		
 		
 		/*
 		 * 
 		 */
-		final GamePanel gamepanel = new GamePanel(new GraphicsBuilder(dogfightModel));
+		final GamePanel gamepanel = new GamePanel(new GraphicsBuilder(dogfightModel)); 
 		this.setContentPane(gamepanel);
-		this.setSize((((Component) dogfightModel).getWidth() * zoom) + this.getInsets().left + this.getInsets().right, (((Component) dogfightModel).getHeight() * zoom) + this.getInsets().top + this.getInsets().bottom);
+		//this.setSize((((Component) dogfightModel).getWidth() * zoom) + this.getInsets().left + this.getInsets().right, (((Component) dogfightModel).getHeight() * zoom) + this.getInsets().top + this.getInsets().bottom);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		
 	}
 
+	
 	@Override
 	public void keyPressed(KeyEvent keyEvent) {
 		// TODO Auto-generated method stub

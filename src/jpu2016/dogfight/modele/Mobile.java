@@ -24,6 +24,13 @@ public class Mobile implements IMobile{
 		this.speed = speed ;
 	}
 	
+	//modification just/pas
+	public Mobile(Direction direction2, com.sun.xml.internal.ws.dump.LoggingDumpTube.Position position2,
+			java.awt.Dimension dimension2, int speed2, String image) {
+		// TODO Auto-generated constructor stub
+	}
+	//
+	
 	@Override
 	public Direction getDirection() {
 		// TODO Auto-generated method stub
@@ -137,6 +144,11 @@ public class Mobile implements IMobile{
 
 	public void setImages(ArrayList<Image> images) {
 		this.images = images;
+	}
+
+	public void buildAllImages(String image) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
